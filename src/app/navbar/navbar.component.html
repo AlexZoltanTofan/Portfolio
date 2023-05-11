@@ -1,0 +1,30 @@
+<header>
+  <div class="logo"><span>A</span>lex <span>T</span></div>
+
+  <ul class="navigation">
+    <li>
+      <a
+        href="#about-me"
+        [ngClass]="{ highlight: selectedTab === 'about-me' }"
+        (click)="selectTab('about-me')"
+        >About me</a
+      >
+    </li>
+    <li>
+      <a
+        href="#skills"
+        [ngClass]="{ highlight: selectedTab === 'skills' }"
+        (click)="selectTab('skills')"
+        >Skills</a
+      >
+    </li>
+    <li>
+      <a
+        href="#"
+        [ngClass]="{ highlight: selectedTab === 'portfolio' }"
+        (click)="selectTab('portfolio')"
+        >Portfolio</a
+      >
+    </li>
+  </ul>
+</header>

@@ -1,0 +1,78 @@
+section {
+  display: flex;
+  position: relative;
+
+  padding-top: 140px;
+
+  .container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 6.25%;
+    gap: 60px;
+
+    .container__about-me {
+      display: flex;
+      flex-direction: column;
+      max-width: 40%;
+      z-index: 2;
+      h2 {
+        font-size: clamp(45px, 10vw, 90px);
+        margin: 26px 0;
+      }
+      .personal-info {
+        display: flex;
+        align-items: center;
+        .img-container {
+          min-width: 120px;
+        }
+
+        img {
+          margin: 10px 30px;
+          height: 60px;
+          object-fit: cover;
+        }
+
+        p {
+          margin: 26px 0;
+        }
+      }
+    }
+
+    .container__picture {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 50%;
+      max-height: 600px;
+      z-index: 1;
+      .container__picture--shadow {
+        position: absolute;
+        top: 49px;
+        left: -50px;
+        object-fit: cover;
+        max-width: 700px;
+        z-index: 1;
+      }
+      .container__picture--my {
+        padding-top: 86px;
+        max-width: 720px;
+
+        z-index: 2;
+        object-fit: cover;
+      }
+    }
+  }
+  .bg-bow-container {
+    position: absolute;
+    top: 76%;
+    right: 0;
+    z-index: 1;
+    img {
+      position: relative;
+      pointer-events: none;
+      min-width: 101vw;
+    }
+  }
+}

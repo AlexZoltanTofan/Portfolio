@@ -1,0 +1,48 @@
+<section>
+  <div class="container__contact-title">
+    <h1>Contact</h1>
+    <div class="container__contact-line-blue"></div>
+  </div>
+
+  <div class="container__contact-formular">
+    <div class="container__contact-formular-text">
+      <div class="container__contact-h2">
+        <h2>Got a problem to solve?</h2>
+        <div class="container__skills-line-green"></div>
+      </div>
+      <p>
+        Contact me through this form, I am interested in hearing you, knowing
+        your ideas and contributing to your projects with my work.
+      </p>
+      <p>Need a Frontend developer? Contact me!</p>
+    </div>
+
+    <form (submit)="sendMail()" #myForm ngNativeValidate>
+      <div class="container__contact-formular-inputs">
+        <input
+          required
+          type="text"
+          placeholder="Your name"
+          name="name"
+          #nameField
+        />
+        <input
+          required
+          type="text"
+          placeholder="Your email"
+          name="email"
+          #emailField
+        />
+        <textarea
+          required
+          type="text"
+          placeholder="Your message"
+          name="message"
+          #messageField
+        ></textarea>
+        <button #sendButton>Send massage :)</button>
+      </div>
+    </form>
+  </div>
+  <img class="blue-shadow-down" src="assets\img\blue-shadow-down.png" />
+</section>

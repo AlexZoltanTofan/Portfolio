@@ -1,0 +1,64 @@
+// Farbpalette
+$primary-color: #00bee8;
+$secondary-color: #4b47ff;
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 20px 6.25%;
+  background-color: #141d2f;
+  overflow: hidden;
+  z-index: 999;
+
+  .logo {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: clamp(27px, 6.5vw, 44px);
+    cursor: pointer;
+    color: white;
+    span {
+      color: $primary-color;
+    }
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  li {
+    padding-left: 1.875rem;
+    list-style: none;
+    border: none;
+
+    a {
+      font-size: 23px;
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+      cursor: pointer;
+
+      &:hover {
+        color: #00bee8;
+      }
+    }
+  }
+
+  .highlight {
+    text-decoration: underline #4b47ff;
+    text-underline-position: under;
+    color: #00bee8;
+  }
+
+  .navigation {
+    display: flex;
+  }
+}
