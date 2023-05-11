@@ -1,6 +1,7 @@
 section {
   padding-bottom: 120px;
   position: relative;
+  overflow: hidden;
 }
 
 .container__contact-title {
@@ -70,7 +71,7 @@ form {
     color: white;
     background-color: #141d2f;
     height: 50px;
-    min-width: 60%;
+    min-width: 70%;
     padding-inline: 20px;
     border: 1px solid #4b47ff;
     border-radius: 10px;
@@ -83,7 +84,7 @@ form {
     color: white;
     background-color: #141d2f;
     height: 200px;
-    min-width: 60%;
+    min-width: 70%;
     padding-inline: 20px;
     border: 1px solid #4b47ff;
     border-radius: 10px;
@@ -116,6 +117,8 @@ form {
 
 .blue-shadow-down {
   position: absolute;
-  right: -240px;
+  right: -280px;
   top: 417px;
+  z-index: 1;
+  pointer-events: none;
 }
