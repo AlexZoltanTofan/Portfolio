@@ -1,0 +1,23 @@
+.position__impressum {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px);
+}
+
+.impressum__container {
+  padding-top: 100px;
+  padding-bottom: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  @media only screen and (max-width: 290px) {
+    font-size: 13px;
+  }
+}

@@ -1,6 +1,10 @@
 .padding-block {
   padding-top: 200px;
   padding-bottom: 200px;
+  @media only screen and (max-width: 1210px) {
+    padding: 0;
+    height: 100vh;
+  }
 }
 
 section {
@@ -13,10 +17,34 @@ section {
 
   .blue-shadow {
     position: absolute;
-    top: 120px;
+    top: 100px;
     left: -252px;
+    max-width: 600px;
     z-index: 1;
     pointer-events: none;
+    @media (max-width: 1210px) {
+      left: -182px;
+      top: 102px;
+      width: 50%;
+    }
+    @media only screen and (max-width: 920px) {
+      top: 316px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+    }
+
+    @media only screen and (max-width: 420px) {
+      top: 167px;
+    }
+    @media only screen and (max-width: 380px) {
+      top: 102px;
+    }
+    @media only screen and (max-width: 300px) {
+      top: 141px;
+      left: -140px;
+    }
   }
 
   .green-shadow {
@@ -25,6 +53,20 @@ section {
     right: -500px;
     z-index: 1;
     pointer-events: none;
+    @media (max-width: 1210px) {
+      top: 343px;
+
+      right: -255px;
+      width: 50%;
+    }
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+      top: 271px;
+    }
+    @media only screen and (max-width: 300px) {
+      right: -200px;
+      top: 198px;
+    }
   }
 
   .position-column {
@@ -39,17 +81,23 @@ section {
     align-items: center;
     gap: 35px;
     left: 50%;
-    margin-top: 120px;
+
     color: #ffffff;
-    margin-bottom: 50px;
+
     .intro-container--first {
-      font-size: clamp(25px, 6.5vw, 90px);
+      font-size: clamp(22px, 6.5vw, 90px);
       transform: rotate(180deg);
       z-index: 2;
       span {
         white-space: nowrap;
         writing-mode: vertical-lr;
         padding-top: 10px;
+        @media only screen and (max-width: 767px) {
+          font-weight: 500;
+        }
+      }
+      @media only screen and (max-width: 300px) {
+        font-size: 18px;
       }
     }
 
@@ -61,12 +109,21 @@ section {
       .intro-container--second--name {
         white-space: nowrap;
         font-size: clamp(25px, 7vw, 98px);
+        @media only screen and (max-width: 300px) {
+          font-size: 18px;
+        }
       }
 
       .intro-container--second--job {
         white-space: nowrap;
         font-size: clamp(21px, 5vw, 64px);
         color: #4b47ff;
+        @media only screen and (max-width: 300px) {
+          font-size: 16px;
+        }
+      }
+      @media only screen and (max-width: 767px) {
+        font-weight: 500;
       }
     }
   }
@@ -84,10 +141,16 @@ section {
     cursor: pointer;
     color: white;
     transition: transform 0.2s ease-in-out;
-
     &:hover {
       background: #4b47ff;
       transform: scale(1.15);
+    }
+
+    @media only screen and (max-width: 767px) {
+      padding: 6px 18px;
+    }
+    @media only screen and (max-width: 300px) {
+      padding: 4px 16px;
     }
   }
 
@@ -115,7 +178,11 @@ section {
       width: 100px;
       background-color: #00bee8;
     }
+    @media only screen and (max-width: 1210px) {
+      bottom: 20px;
+    }
   }
+
   .scroll-down-container {
     position: absolute;
     display: flex;
@@ -143,6 +210,9 @@ section {
       100% {
         transform: rotate(270deg) translateY(0);
       }
+    }
+    @media (max-width: 1210px) {
+      display: none;
     }
   }
 }

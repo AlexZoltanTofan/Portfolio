@@ -1,12 +1,28 @@
 <header>
-  <div class="logo"><span>A</span>lex <span>T</span></div>
+  <div>
+    <a class="logo" href="#start"> &lt;AT&gt;</a>
+  </div>
 
-  <ul class="navigation">
+  <button
+    class="mobile-button"
+    [ngClass]="{ active: mobileMenu }"
+    (click)="toggleMobileMenu()"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul
+    class="navigation"
+    [ngClass]="{ 'is-open': mobileMenu, animate: mobileMenu }"
+  >
     <li>
       <a
         href="#about-me"
         [ngClass]="{ highlight: selectedTab === 'about-me' }"
         (click)="selectTab('about-me')"
+        (click)="toggleMobileMenu()"
         >About me</a
       >
     </li>
@@ -15,15 +31,27 @@
         href="#skills"
         [ngClass]="{ highlight: selectedTab === 'skills' }"
         (click)="selectTab('skills')"
+        (click)="toggleMobileMenu()"
         >Skills</a
       >
     </li>
     <li>
       <a
-        href="#"
+        href="#portfolio"
         [ngClass]="{ highlight: selectedTab === 'portfolio' }"
         (click)="selectTab('portfolio')"
+        (click)="toggleMobileMenu()"
         >Portfolio</a
+      >
+    </li>
+    <li>
+      <a
+        class="contact-link"
+        href="#contact"
+        [ngClass]="{ highlight: selectedTab === 'contact' }"
+        (click)="selectTab('contact')"
+        (click)="toggleMobileMenu()"
+        >Contact</a
       >
     </li>
   </ul>

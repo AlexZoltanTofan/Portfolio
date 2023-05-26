@@ -14,6 +14,7 @@ section {
   h1 {
     display: inline;
     font-size: clamp(45px, 10vw, 90px);
+
     line-height: 75px;
     white-space: nowrap;
   }
@@ -22,7 +23,7 @@ section {
 .container__contact-line-blue {
   position: absolute;
   right: 0;
-  width: 30%;
+  width: 20%;
   border-radius: 20px;
   border: 3px solid #00bee8;
 }
@@ -30,8 +31,11 @@ section {
 .container__contact-formular {
   display: flex;
   justify-content: space-between;
-  gap: 40px;
+  margin-bottom: 20px;
   padding: 0 6.25%;
+  @media (max-width: 1210px) {
+    flex-direction: column;
+  }
 }
 
 .container__contact-formular-text {
@@ -49,7 +53,7 @@ section {
   .container__skills-line-green {
     position: absolute;
     left: 0;
-    width: 50px;
+    width: 3%;
     border-radius: 20px;
     border: 3px solid #1ce6b6;
     padding-right: 5px;
@@ -59,13 +63,77 @@ section {
 form {
   min-width: 50%;
   z-index: 3;
+  position: relative;
 }
+
 .container__contact-formular-inputs {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+  padding: 0 10%;
   gap: 40px;
+  button {
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 23px;
+    text-align: center;
+    color: white;
+    background-color: #00bee8;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    transition: transform 0.2s ease-in-out;
+    font-size: clamp(18px, 3vw, 23px);
+    margin: 0 auto;
+    cursor: pointer;
+
+    &:hover {
+      background: #4b47ff;
+      transform: scale(1.15);
+    }
+  }
+
+  @media (max-width: 1210px) {
+    padding: 0;
+  }
+}
+
+.pics-confirm {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -125%);
+  opacity: 0;
+  animation-name: fade-in-out;
+  animation-duration: 1s;
+  animation-delay: 0s; /* Keine Verzögerung */
+}
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -125%) scale(0.8); /* Starte mit kleinerer Größe */
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, -125%) scale(1.2); /* Vergrößere auf 1.2 */
+  }
+  90% {
+    opacity: 1;
+    transform: translate(-50%, -125%) scale(1.2); /* Behalte die Größe bei */
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -125%) scale(0.8); /* Ende mit kleinerer Größe */
+  }
+}
+
+.form-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 
   input {
     color: white;
@@ -75,6 +143,7 @@ form {
     padding-inline: 20px;
     border: 1px solid #4b47ff;
     border-radius: 10px;
+
     &:hover {
       border: 1px solid #1ce6b6;
       box-shadow: 0 0 4px #1ce6b6;
@@ -94,24 +163,40 @@ form {
       box-shadow: 0 0 4px #1ce6b6;
     }
   }
+  span {
+    position: absolute;
+    bottom: -30px;
+  }
+}
 
-  button {
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 23px;
-    text-align: center;
-    color: white;
-    background-color: #00bee8;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-    border: none;
-    transition: transform 0.2s ease-in-out;
-    font-size: clamp(18px, 3vw, 23px);
-    cursor: pointer;
+.error-message {
+  color: red;
+}
 
-    &:hover {
-      background: #4b47ff;
-      transform: scale(1.15);
-    }
+.empty {
+  border: 1px solid red !important;
+}
+
+.stop-pointer {
+  cursor: not-allowed;
+}
+
+.sent-animation {
+  animation: sent-animation 1s ease-in-out;
+}
+
+@keyframes sent-animation {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -121,4 +206,20 @@ form {
   top: 417px;
   z-index: 1;
   pointer-events: none;
+  @media (max-width: 1210px) {
+    right: -557px;
+  }
+}
+
+.up-button {
+  position: absolute;
+  display: flex;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  justify-content: flex-end;
+  margin: 80px 40px 40px;
+  a {
+    z-index: 3;
+  }
 }

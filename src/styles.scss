@@ -9,3 +9,25 @@ body {
   overflow-x: hidden;
   width: 100%;
 }
+
+html {
+  scroll-padding-top: 100px;
+  scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #213559;
+  border-radius: 10px;
+}

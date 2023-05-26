@@ -1,8 +1,10 @@
 section {
   display: flex;
   position: relative;
-
   padding-top: 140px;
+  @media only screen and (max-width: 767px) {
+    padding-top: 0px;
+  }
 
   .container {
     position: relative;
@@ -16,10 +18,15 @@ section {
       flex-direction: column;
       max-width: 40%;
       z-index: 2;
+      @media (max-width: 1210px) {
+        max-width: 100%;
+      }
+
       h2 {
         font-size: clamp(45px, 10vw, 90px);
         margin: 26px 0;
       }
+
       .personal-info {
         display: flex;
         align-items: center;
@@ -47,32 +54,76 @@ section {
       max-width: 50%;
       max-height: 600px;
       z-index: 1;
+
       .container__picture--shadow {
         position: absolute;
         top: 49px;
         left: -50px;
         object-fit: cover;
         max-width: 700px;
+        width: 100%;
         z-index: 1;
+        @media only screen and (max-width: 767px) {
+          left: -24px;
+        }
       }
+
       .container__picture--my {
         padding-top: 86px;
-        max-width: 720px;
-
+        max-width: 797px;
+        width: 82vw;
+        border-radius: 50px;
         z-index: 2;
         object-fit: cover;
+        @media only screen and (max-width: 767px) {
+          border-radius: 208px;
+        }
+      }
+    }
+    @media (max-width: 1210px) {
+      align-items: center;
+      flex-direction: column-reverse;
+      .container__picture {
+        max-width: 100%;
+      }
+      .container__picture--my {
+        max-width: 300px;
       }
     }
   }
+
   .bg-bow-container {
     position: absolute;
     top: 76%;
     right: 0;
     z-index: 1;
+
     img {
       position: relative;
       pointer-events: none;
       min-width: 101vw;
+    }
+    @media (max-width: 1210px) {
+      top: 45%;
+    }
+    @media only screen and (max-width: 767px) {
+      top: 36%;
+    }
+    @media only screen and (max-width: 640px) {
+      top: 33%;
+    }
+    @media only screen and (max-width: 500px) {
+      top: 26%;
+    }
+    @media only screen and (max-width: 450px) {
+      top: 22%;
+    }
+    @media only screen and (max-width: 400px) {
+      top: 19%;
+    }
+
+    @media only screen and (max-width: 305px) {
+      top: 13%;
     }
   }
 }

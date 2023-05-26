@@ -12,10 +12,27 @@ export class ContactComponent {
   @ViewChild('messageField') messageField!: ElementRef;
   @ViewChild('sendButton') sendButton!: ElementRef;
 
+  isNameEmpty: boolean = false;
+  isEmailEmpty: boolean = false;
+  isMessageEmpty: boolean = false;
+
+  isSending: boolean = false;
+  messageSent: boolean = false;
+
   constructor() {}
   ngOnInit(): void {}
+
   async sendMail() {
-    console.log('Sending mail', this.myForm);
+    if (
+      !this.nameField.nativeElement.value ||
+      !this.emailField.nativeElement.value ||
+      !this.messageField.nativeElement.value ||
+      !this.validateEmail(this.emailField.nativeElement.value)
+    ) {
+      return;
+    }
+
+    this.isSending = true;
     let nameField = this.nameField.nativeElement;
     let emailField = this.emailField.nativeElement;
     let messageField = this.messageField.nativeElement;
@@ -27,22 +44,46 @@ export class ContactComponent {
     messageField.disabled = true;
     sendButton.disabled = true;
 
-    //sa pui aici o animatie ca s-a trimis. ms
+    nameField.classList.add('sent-animation');
+    emailField.classList.add('sent-animation');
+    messageField.classList.add('sent-animation');
+    sendButton.classList.add('sent-animation');
 
     let fd = new FormData();
     fd.append('name', nameField.value);
     fd.append('email', emailField.value);
     fd.append('message', messageField.value);
 
-    await fetch(
-      'https://alex-zoltan-tofan.developerakademie.net/send_mail2/send_mail/send_mail.php',
-      { method: 'POST', body: fd }
-    );
+    await fetch('https://alex-tofan.com/send_mail/send_mail/send_mail.php', {
+      method: 'POST',
+      body: fd,
+    });
 
-    // Text anzeigen: Nachricht gesendet
+    this.isSending = false;
+    this.messageSent = true;
+
+    this.nameField.nativeElement.value = '';
+    this.emailField.nativeElement.value = '';
+    this.messageField.nativeElement.value = '';
+
     nameField.disabled = false;
     emailField.disabled = false;
     messageField.disabled = false;
-    sendButton.disabled = false;
+    sendButton.disabled = true;
+
+    setTimeout(() => {
+      this.messageSent = false;
+      sendButton.disabled = false;
+    }, 1000);
+
+    nameField.classList.remove('sent-animation');
+    emailField.classList.remove('sent-animation');
+    messageField.classList.remove('sent-animation');
+    sendButton.classList.remove('sent-animation');
+  }
+
+  validateEmail(email: string): boolean {
+    const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    return emailPattern.test(email);
   }
 }

@@ -6,6 +6,30 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
+  overflow-x: clip;
+}
+.purple-shadow-green {
+  position: absolute;
+  right: -400px;
+  top: -259px;
+  z-index: 2;
+  @media only screen and (max-width: 767px) {
+    top: 35px;
+    right: -213px;
+    width: 100%;
+  }
+}
+.purple-shadow-blue {
+  position: absolute;
+  bottom: -350px;
+  left: -489px;
+  z-index: 2;
+  @media only screen and (max-width: 767px) {
+    bottom: -153px;
+    left: -239px;
+    width: 100%;
+  }
 }
 
 .container__portfolio-content {
@@ -30,12 +54,13 @@
   .container__portfolio-line {
     position: absolute;
     left: 0;
-    width: 50px;
+    width: 3%;
     border-radius: 20px;
     border: 3px solid #4b47ff;
     padding-right: 5px;
   }
 }
+
 .container__projects {
   display: flex;
   padding: 0 6.25%;
@@ -43,6 +68,9 @@
   gap: 35px;
   flex-wrap: wrap;
   margin-top: 98px;
+  @media only screen and (max-width: 767px) {
+    margin-top: 42px;
+  }
 }
 
 .container__project {
@@ -55,8 +83,19 @@
   background-color: #141d2f;
   max-width: 600px;
   max-height: 600px;
-
   overflow: hidden;
+  @media (max-width: 1230px) {
+    max-width: 400px;
+    max-height: 400px;
+  }
+  @media (max-width: 978px) {
+    max-width: 350px;
+    max-height: 350px;
+  }
+  @media (max-width: 858px) {
+    max-width: 300px;
+    max-height: 300px;
+  }
 }
 
 .container__project-img {
@@ -69,10 +108,8 @@
   img {
     width: 100%;
     height: auto;
-
-    transition: transform 0.5s ease; /* Fügt eine Übergangsanimation hinzu */
-
-    transform-origin: center bottom; /* Setzt den Ursprung der Transformation auf die Mitte unten des Bildes */
+    transition: transform 0.5s ease;
+    transform-origin: center bottom;
   }
 }
 
@@ -99,7 +136,6 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-
   flex-direction: column;
 }
 
@@ -107,13 +143,11 @@
   width: 100%;
   height: 60%;
   background-color: rgb(67, 74, 89, 0.7);
-  // background-color: transparent;
 }
 
 .container__buttons {
   display: flex;
   align-items: center;
-
   width: 100%;
   height: 80%;
   justify-content: space-around;
